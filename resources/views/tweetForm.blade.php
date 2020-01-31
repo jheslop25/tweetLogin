@@ -1,7 +1,7 @@
 
     <form action="/validatetweet" method='post'>
         @csrf
-        <input type="text" name='title' value="author">
+    <input type="text" name='title' value="{{Auth::user()->name}}" readonly>
         <input type="text" name="content" value="enter tweet">
         <input type="submit" name="submit">
     </form>
