@@ -15,6 +15,8 @@
                     @endif
 
                     You are logged in!
+                    <a href="/tweets">home</a>
+
                 </div>
             </div>
         </div>

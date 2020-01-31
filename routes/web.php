@@ -31,7 +31,9 @@ Route::post('validatetweet', 'tweetFormController@checkWithController'); // vali
 
 Route::post('/delete', 'tweetFormController@delete'); //delete a tweet
 
-Route::get('/update', 'tweetFormController@update'); // update a tweet
+Route::post('/update', 'tweetFormController@update'); // update a tweet
 
 Route::post('/view', 'tweetFormController@viewTweet');
+
+Route::post('/edit', 'tweetFormController@editTweet');
 

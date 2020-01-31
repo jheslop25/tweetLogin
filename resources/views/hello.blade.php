@@ -1,16 +1,17 @@
 @extends('layouts.app')
     @section('content')
-    @guest
-    Please Sign in or sign up
-    @else
-    Welcome {{ Auth::user()->name}}
+
+
+
+
     @foreach ($allTweets ?? '' as $tweet)
     <p> {{$tweet['content']}}</p>
     <p><strong> {{$tweet['author']}}</strong></p>
-    @php
+    {{-- @php
         var_dump($tweet['id']);
-    @endphp
+    @endphp --}}
 
+    @auth
 
     <form action="/delete" method="post">
         @csrf
@@ -20,7 +21,13 @@
         @csrf
     <button type="submit" name="viewId" value="{{$tweet['id']}}">View post</button>
     </form>
+    <form action="/update" method="post">
+        @csrf
+    <button type="submit" name="editId" value="{{$tweet['id']}}">Edit post</button>
+    </form>
+    @endauth
     @endforeach
+    @auth
     @include('tweetForm')
-    @endguest
+    @endauth
     @endsection

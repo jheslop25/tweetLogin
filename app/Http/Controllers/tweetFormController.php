@@ -45,4 +45,28 @@ class tweetFormController extends Controller
             return view('single', ['tweet' => $tweet]);
         }
    }
+
+   public function update(Request $request){
+        $id = $request->editId;
+        if(Auth::check()){
+            $tweet = \App\tweet::find($id);
+
+            return view('edit', ['tweet' => $tweet]);
+        }
+   }
+
+   public function editTweet(Request $request){
+        $id = $request->id;
+        if(Auth::check()){
+            $tweet = \App\tweet::find($id);
+            $tweet->author = $request->author;
+            $tweet->content = $request->content;
+
+            $tweet->save();
+            return redirect('/tweets');
+        }
+
+
+    //return view('home');
+   }
 }
