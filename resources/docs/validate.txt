@@ -1,0 +1,32 @@
+objective:
+
+create a form to create/edit tweets and validate the input.
+
+input does not need to be stored in DB
+
+
+MODLE:
+
+ -- STORE tweets in DB (if time allows) extra marks
+
+VIEW:
+
+ -- display form to user -> form route --
+
+ -- display success or error message to user
+
+CONTROLLER:
+
+ -- return view with form to user --
+
+ -- validate form input --
+
+ -- return VIEW -> with message.
+
+ -- create validate request class use as type in CONTROLLER --
+
+ROUTER:
+
+ -- create form route -> returns view with form --
+
+ -- create validate route -> returns success or failure view --
