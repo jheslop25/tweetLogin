@@ -13,6 +13,10 @@ class tweetFormController extends Controller
     }
 
    public function checkWithController(Request $request){
+       if($request->validate([
+            'author' => 'required | min:3 | max: 50',
+            'content' => 'required | min:3 | max: 144'
+       ])){
             if(Auth::check()){
                 $tweet = new \App\tweet();
                 $tweet->author = $request->title; // minor hack here. missnamed form input as title vs. author
@@ -22,6 +26,7 @@ class tweetFormController extends Controller
                 $tweets = \App\tweet::all();
                 return view('hello', ['allTweets' => $tweets]);
             }
+       }
    }
 
 
