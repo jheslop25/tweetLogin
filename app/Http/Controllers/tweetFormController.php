@@ -27,12 +27,15 @@ class tweetFormController extends Controller
 
    public function delete(Request $request){
         $id = $request->deleteId;
-            if(Auth::check()){
+        $tweet = \App\tweet::find($id);
+            if(Auth::user()->name == $tweet->author){
                \App\tweet::destroy($id);
 
                $tweets = \App\tweet::all();
                 return view('hello', ['allTweets' => $tweets]);
                 // redirect('/tweets');
+            } else {
+                return redirect('/tweets');
             }
 
    }
@@ -66,7 +69,5 @@ class tweetFormController extends Controller
             return redirect('/tweets');
         }
 
-
-    //return view('home');
    }
 }
