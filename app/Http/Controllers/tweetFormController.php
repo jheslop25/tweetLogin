@@ -19,7 +19,7 @@ class tweetFormController extends Controller
        ])){
             if(Auth::check()){
                 $tweet = new \App\tweet();
-                $tweet->author = $request->title; // minor hack here. missnamed form input as title vs. author
+                $tweet->author = $request->author;
                 $tweet->content = $request->content;
                 $tweet->save();
 
@@ -74,5 +74,36 @@ class tweetFormController extends Controller
             return redirect('/tweets');
         }
 
+   }
+
+   public function showUsers(){
+        $users = \App\getUsers::all();
+        if(Auth::check()){
+            $follows = \App\usersFollowers::where('following', Auth::user()->name)->get();
+            return view('users', ['users' => $users, 'follows' => $follows]);
+        } else {
+            return redirect('/home');
+        }
+
+   }
+
+   public function followUser(Request $request){
+        $userToFollow = $request->follow;
+        $user = Auth::user()->name;
+        $relationship = new \App\usersFollowers();
+        $relationship->following = $user;
+        $relationship->followed = $userToFollow;
+
+        $relationship->save();
+
+        return redirect('/users');
+   }
+
+   public function userTweets(Request $request){
+        $user = $request->userTweets;
+        //var_dump($user);
+        $tweets = \App\tweet::where('author', $user)->get();
+        //var_dump($tweets);
+        return view('hello', ['allTweets' => $tweets]);
    }
 }

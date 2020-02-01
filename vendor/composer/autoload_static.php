@@ -443,6 +443,7 @@ class ComposerStaticInit7c950f90efdb643173a23b841d2f97b5
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\tweet' => __DIR__ . '/../..' . '/app/tweet.php',
+        'App\\users' => __DIR__ . '/../..' . '/app/users.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonImmutable' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',
         'Carbon\\CarbonInterface' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterface.php',
@@ -4440,7 +4441,6 @@ class ComposerStaticInit7c950f90efdb643173a23b841d2f97b5
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
         'tweets' => __DIR__ . '/../..' . '/database/seeds/tweets.php',
-        'tweetseeder' => __DIR__ . '/../..' . '/database/seeds/tweetseeder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

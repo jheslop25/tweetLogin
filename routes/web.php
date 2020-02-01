@@ -37,3 +37,8 @@ Route::post('/view', 'tweetFormController@viewTweet');
 
 Route::post('/edit', 'tweetFormController@editTweet');
 
+Route::get('/users', 'tweetFormController@showUsers');
+
+Route::post('/follow', 'tweetFormController@followUser');
+
+Route::post('/user/tweets', 'tweetFormController@userTweets');

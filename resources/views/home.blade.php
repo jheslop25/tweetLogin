@@ -14,8 +14,9 @@
                         </div>
                     @endif
 
-                    You are logged in!
-                    <a href="/tweets">home</a>
+                    <p>You are logged in!</p><br>
+                    <a href="/tweets">Go to home</a><br>
+                    <a href="/users">Go to Users</a>
 
                 </div>
             </div>
